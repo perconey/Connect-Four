@@ -3,11 +3,86 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:viewmodel="clr-namespace:ConnectFour.ViewModel"
+        xmlns:ViewModel="clr-namespace:ConnectFour.ViewModel"
         mc:Ignorable="d"
         Title="Connect Four" ResizeMode="NoResize" Height="600" Width="750">
+    <Window.Resources>
+        <!--#region Styles-->
+        <!--No mouseover action style v2-->
+        <Style x:Key="NoMouseOverButton" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="Black" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--#endregion-->
+    </Window.Resources>
     <Grid>
-        <Image HorizontalAlignment="Left" Source="/Resources/c4board.png" Height="502" Margin="154,59,0,0" VerticalAlignment="Top" Width="580"/>
+        <!--Board image-->
+        <Image HorizontalAlignment="Left" Source="/Resources/c4board.png" Height="502" Margin="161,66,0,0" VerticalAlignment="Top" Width="580"/>
+
+        <!--#region Buttons named from left to right 1 ... 7 -->
+        <Button Name="b1" Command="{Binding tbs}" Style="{DynamicResource NoMouseOverButton}"
+                HorizontalAlignment="Left" Height="57.333" Margin="185.671,3.667,0,0" VerticalAlignment="Top" Width="56.168" BorderThickness="0" BorderBrush="{x:Null}" Foreground="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="/ConnectFour;component/Resources/arrow.png"/>
+            </Button.Background>
+        </Button>
+
+        <Button Name="b2" Command="{Binding tbs}" Style="{DynamicResource NoMouseOverButton}"
+            HorizontalAlignment="Left" Height="57.333" Margin="264.337,3.667,0,0" VerticalAlignment="Top" Width="56.168" BorderThickness="0" BorderBrush="{x:Null}" Foreground="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="/ConnectFour;component/Resources/arrow.png"/>
+            </Button.Background>
+        </Button>
+
+        <Button Name="b3" Command="{Binding tbs}" Style="{DynamicResource NoMouseOverButton}"
+            HorizontalAlignment="Left" Height="57.333" Margin="343.004,3.667,0,0" VerticalAlignment="Top" Width="56.168" BorderThickness="0" BorderBrush="{x:Null}" Foreground="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="/ConnectFour;component/Resources/arrow.png"/>
+            </Button.Background>
+        </Button>
+
+        <Button Name="b4" Command="{Binding tbs}" Style="{DynamicResource NoMouseOverButton}"
+            HorizontalAlignment="Left" Height="57.333" Margin="423.004,3.667,0,0" VerticalAlignment="Top" Width="56.168" BorderThickness="0" BorderBrush="{x:Null}" Foreground="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="/ConnectFour;component/Resources/arrow.png"/>
+            </Button.Background>
+        </Button>
+
+        <Button Name="b5" Command="{Binding tbs}" Style="{DynamicResource NoMouseOverButton}"
+            HorizontalAlignment="Left" Height="57.333" Margin="501.671,3.667,0,0" VerticalAlignment="Top" Width="56.168" BorderThickness="0" BorderBrush="{x:Null}" Foreground="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="/ConnectFour;component/Resources/arrow.png"/>
+            </Button.Background>
+        </Button>
+
+        <Button Name="b6" Command="{Binding tbs}" Style="{DynamicResource NoMouseOverButton}"
+            HorizontalAlignment="Left" Height="57.333" Margin="581.004,3.667,0,0" VerticalAlignment="Top" Width="56.168" BorderThickness="0" BorderBrush="{x:Null}" Foreground="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="/ConnectFour;component/Resources/arrow.png"/>
+            </Button.Background>
+        </Button>
+
+        <Button Name="b7" Command="{Binding tbs}" Style="{DynamicResource NoMouseOverButton}"
+            HorizontalAlignment="Left" Height="57.333" Margin="660.337,3.667,0,0" VerticalAlignment="Top" Width="56.168" BorderThickness="0" BorderBrush="{x:Null}" Foreground="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="/ConnectFour;component/Resources/arrow.png"/>
+            </Button.Background>
+        </Button>
+        <!--#endregion-->
 
     </Grid>
 </Window>
