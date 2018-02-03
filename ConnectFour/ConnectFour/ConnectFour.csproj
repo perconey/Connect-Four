@@ -95,6 +95,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\c4board.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\pred.png" />
+    <Resource Include="Resources\pyellow.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

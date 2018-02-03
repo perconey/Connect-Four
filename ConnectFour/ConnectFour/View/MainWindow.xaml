@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewmodel="clr-namespace:ConnectFour.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Connect Four" ResizeMode="NoResize" Height="600" Width="750">
     <Grid>
-        
+        <Image HorizontalAlignment="Left" Source="/Resources/c4board.png" Height="502" Margin="154,59,0,0" VerticalAlignment="Top" Width="580"/>
+
     </Grid>
 </Window>
