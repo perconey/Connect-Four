@@ -31,6 +31,8 @@
     </Window.Resources>
     <Grid>
         <!--Board image-->
+        <Button Content="Button" HorizontalAlignment="Left" Height="50" Margin="2,79,0,0" VerticalAlignment="Top" Width="157"/>
+
         <Image HorizontalAlignment="Left" Source="/Resources/c4board.png" Height="502" Margin="161,66,0,0" VerticalAlignment="Top" Width="580"/>
 
         <!--#region Buttons named from left to right 1 ... 7 -->
