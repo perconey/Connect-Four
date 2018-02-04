@@ -1,5 +1,4 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using ConnectFour.Logic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -13,18 +12,26 @@ namespace ConnectFour.Tests
         {
             //Arrange
             var g = new Game();
-            int i = 0;
+            int i = 0, l = 1;
 
             //Act
             var fm = g.FieldsMap;
+            Debug.Write("     ");
+            for(i = 0; i < 7; i++)
+            {
+                Debug.Write(i + 1 + "              ");
+            }
 
             //Check
             foreach(var item in fm)
             {
                 if (i % 7 == 0)
-                    Debug.Write("\n");
+                {
+                    Debug.Write("\n" + l);
+                    l++;
+                }
 
-                Debug.WriteLine($"{item.Key} , {item.Value}");
+                Debug.Write($"[{item.Key} , {item.Value}] ");
                 i++;
             }
         }
