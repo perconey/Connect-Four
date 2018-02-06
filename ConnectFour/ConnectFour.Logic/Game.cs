@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConnectFour.Logic
 {
@@ -17,9 +14,10 @@ namespace ConnectFour.Logic
 
         }
 
-        private void resetFields()
+        //Resets the board
+        private void ResetFields()
         {
-            //for(int i = 0; i < )
+            FieldsMap = new KeyValuePair<int, bool>[7,6];
         }
     }
 }
