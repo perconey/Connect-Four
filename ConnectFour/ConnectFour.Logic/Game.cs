@@ -16,8 +16,11 @@ namespace ConnectFour.Logic
 
         public KeyValuePair<int, bool>[,] FieldsMap { get => _fieldsMap; set => _fieldsMap = value; }
 
+        private List<int> _fullColumns;
+        public List<int> FullColumns { get => _fullColumns; set => _fullColumns = value; }
 
         public int CurrentPlayer { get => _currentPlayer; set => _currentPlayer = value; }
+
         private int _currentPlayer;
 
         public Game()
@@ -37,6 +40,8 @@ namespace ConnectFour.Logic
                 {
                     // var na = new KeyValuePair<int, bool>[GAME_COLUMNS, GAME_ROWS_FOR_EACH_COLUMN];
                     FieldsMap[column, i - 1] = new KeyValuePair<int, bool>(CurrentPlayer, true);
+                    if (i == 0)
+                        FullColumns.Add(column);
                 }
             }
 
