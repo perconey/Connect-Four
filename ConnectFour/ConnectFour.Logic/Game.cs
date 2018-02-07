@@ -48,6 +48,22 @@ namespace ConnectFour.Logic
             SwapPlayerTurn();
         }
 
+        private void CheckWinningState()
+        {
+            int currentlyCheckedPinColor = 0;
+            for(int col = 0; col < GAME_COLUMNS; col++)
+            {
+                for(int row = 0; row < GAME_ROWS_FOR_EACH_COLUMN; row++)
+                {
+                    if(FieldsMap[col,row].Value == true)
+                    {
+                        currentlyCheckedPinColor = FieldsMap[col, row].Key;
+                        
+                    }
+                }
+            }
+        }
+
         private void SwapPlayerTurn()
         {
             if (CurrentPlayer == 1)
