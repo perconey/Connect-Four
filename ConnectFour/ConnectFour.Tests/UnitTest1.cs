@@ -17,11 +17,6 @@ namespace ConnectFour.Tests
 
             //Act
             var fm = g.FieldsMap;
-            Debug.Write("     ");
-            for(i = 0; i < 7; i++)
-            {
-                Debug.Write(i + 1 + "              ");
-            }
 
             //Check
             ShowFields(fm);
@@ -36,11 +31,6 @@ namespace ConnectFour.Tests
 
             //Act
             var fm = g.FieldsMap;
-            Debug.Write("     ");
-            for (i = 0; i < 7; i++)
-            {
-                Debug.Write(i + 1 + "              ");
-            }
 
             //Check
             ShowFieldsColors(fm);
@@ -69,7 +59,7 @@ namespace ConnectFour.Tests
             {
                 Debug.Write(i + 1 + "              ");
             }
-            Debug.Write("\n");
+           Debug.Write("\n");
 
             int row = 0, column = 0;
             for (row = 0; row < 6; row++)
@@ -84,21 +74,28 @@ namespace ConnectFour.Tests
 
         private void ShowFieldsColors(KeyValuePair<int, bool>[,] gameBoard)
         {
-            int i = 0, l = 1;
-            foreach (var item in gameBoard)
+            Debug.Write("   ");
+            for (int i = 0; i < 7; i++)
             {
-                if (i % 7 == 0)
+                Debug.Write(i + 1 + "          ");
+            }
+            Debug.Write("\n");
+            string color = "def";
+
+            int row = 0, column = 0;
+            for (row = 0; row < 6; row++)
+            {
+                for (column = 0; column < 7; column++)
                 {
-                    Debug.Write("\n" + l);
-                    l++;
+                    if (gameBoard[column, row].Key == 0)
+                        color = "none";
+                    if (gameBoard[column, row].Key == 1)
+                        color = "yellow";
+                    if (gameBoard[column, row].Key == 2)
+                        color = "red";
+                    Debug.Write($"[{color}] ");
                 }
-                if (item.Key == 0)
-                    Debug.Write($"[none]     ");
-                if (item.Key == 1)
-                    Debug.Write($"[yellow]   ");
-                if (item.Key == 2)
-                    Debug.Write($"[red]      ");
-                i++;
+                Debug.Write("\n");
             }
         }
     }
