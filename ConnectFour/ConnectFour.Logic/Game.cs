@@ -32,6 +32,13 @@ namespace ConnectFour.Logic
         {
             for(int i = 0; i < GAME_ROWS_FOR_EACH_COLUMN; i++)
             {
+                //When there are no pins in current column
+                if(FieldsMap[column, GAME_ROWS_FOR_EACH_COLUMN - 1].Value == false)
+                {
+                    FieldsMap[column, GAME_ROWS_FOR_EACH_COLUMN - 1] = new KeyValuePair<int, bool>(CurrentPlayer, true);
+                    break;
+                }
+
                 if (FieldsMap[column, i].Value == false)
                 {
                     continue;
@@ -40,7 +47,7 @@ namespace ConnectFour.Logic
                 {
                     // var na = new KeyValuePair<int, bool>[GAME_COLUMNS, GAME_ROWS_FOR_EACH_COLUMN];
                     FieldsMap[column, i - 1] = new KeyValuePair<int, bool>(CurrentPlayer, true);
-                    if (i == 0)
+                    if (i <= 0)
                         FullColumns.Add(column);
                 }
             }
