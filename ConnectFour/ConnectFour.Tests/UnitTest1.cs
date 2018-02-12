@@ -10,6 +10,7 @@ namespace ConnectFour.Tests
     {
         private int maxColumns = Game.GAME_COLUMNS;
         private int maxRows = Game.GAME_ROWS_FOR_EACH_COLUMN;
+        private int defaultStartingPlayer = Game.DEFAULT_STARTING_PLAYER;
 
         [TestMethod]
         public void DefTValCheck()
@@ -51,6 +52,23 @@ namespace ConnectFour.Tests
 
             //Check
             ShowFieldsColors(fm);
+        }
+
+        [TestMethod]
+        public void WinningTest()
+        {
+            //Arrange
+            var gm = new Game();
+            int expectedWinner = defaultStartingPlayer;
+
+            //Act
+            var fm = gm.FieldsMap;
+            gm.AddPin(0); gm.AddPin(1); gm.AddPin(0); gm.AddPin(2); gm.AddPin(0);
+            gm.AddPin(3); gm.AddPin(0);
+
+            //Assert & Check
+            ShowFieldsColors(fm);
+            Assert.AreEqual(expectedWinner, gm.Winner);
         }
 
         [TestMethod]

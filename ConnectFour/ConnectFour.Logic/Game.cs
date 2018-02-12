@@ -16,7 +16,7 @@ namespace ConnectFour.Logic
 
         public KeyValuePair<int, bool>[,] FieldsMap { get => _fieldsMap; set => _fieldsMap = value; }
 
-        private List<int> _fullColumns;
+        private List<int> _fullColumns = new List<int>();
         public List<int> FullColumns { get => _fullColumns; set => _fullColumns = value; }
 
         public int CurrentPlayer { get => _currentPlayer; set => _currentPlayer = value; }
@@ -63,6 +63,9 @@ namespace ConnectFour.Logic
             }
 
             SwapPlayerTurn();
+
+            //MAKE FIRST CHECKING DEALYED UNTIL 8th TURN FOR AVOIDING UNWANTED CALCULATIONS!
+            CheckWinningState();
         }
 
         private void CheckWinningState()
