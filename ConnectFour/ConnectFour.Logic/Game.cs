@@ -23,6 +23,8 @@ namespace ConnectFour.Logic
 
         private int _currentPlayer;
 
+        public int Winner = 0;
+
         public Game()
         {
             CurrentPlayer = DEFAULT_STARTING_PLAYER;
@@ -73,7 +75,24 @@ namespace ConnectFour.Logic
                     if(FieldsMap[col,row].Value == true)
                     {
                         currentlyCheckedPinColor = FieldsMap[col, row].Key;
-                        
+                        // ->
+                        try
+                        {
+                            if (FieldsMap[col + 1, row].Value == true && FieldsMap[col + 1, row].Key == currentlyCheckedPinColor)
+                                if (FieldsMap[col + 2, row].Value == true && FieldsMap[col + 2, row].Key == currentlyCheckedPinColor)
+                                    if (FieldsMap[col + 3, row].Value == true && FieldsMap[col + 3, row].Key == currentlyCheckedPinColor)
+                                        Winner = currentlyCheckedPinColor;
+                        }catch(Exception ex){ continue; }
+
+                        // \|/
+                        try
+                        {
+                            if (FieldsMap[col, row + 1].Value == true && FieldsMap[col, row + 1].Key == currentlyCheckedPinColor)
+                                if (FieldsMap[col, row + 2].Value == true && FieldsMap[col, row + 2].Key == currentlyCheckedPinColor)
+                                    if (FieldsMap[col, row + 3].Value == true && FieldsMap[col, row + 3].Key == currentlyCheckedPinColor)
+                                        Winner = currentlyCheckedPinColor;
+                        }
+                        catch (Exception ex) { continue; }
                     }
                 }
             }
