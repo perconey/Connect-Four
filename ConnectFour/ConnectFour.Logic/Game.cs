@@ -35,6 +35,10 @@ namespace ConnectFour.Logic
 
             for(int i = 0; i < GAME_ROWS_FOR_EACH_COLUMN; i++)
             {
+                //Checks if column is not full (will be guarded by the user gui, but an Exception needs to be thrown)
+                if (FieldsMap[column, 0].Value == true)
+                    throw new ArgumentException("You tried to add a pin to a full column!");
+
                 //When there are no pins in current column
                 if(FieldsMap[column, GAME_ROWS_FOR_EACH_COLUMN - 1].Value == false)
                 {
@@ -50,9 +54,9 @@ namespace ConnectFour.Logic
                 {
                     // var na = new KeyValuePair<int, bool>[GAME_COLUMNS, GAME_ROWS_FOR_EACH_COLUMN];
                     FieldsMap[column, i - 1] = new KeyValuePair<int, bool>(CurrentPlayer, true);
-
-                    if (i <= 0)
+                    if (i == 1)
                         FullColumns.Add(column);
+                    break;
                 }
             }
 
@@ -77,10 +81,15 @@ namespace ConnectFour.Logic
 
         private void SwapPlayerTurn()
         {
-            if (CurrentPlayer == 1)
-                CurrentPlayer++;
-            else
-                CurrentPlayer--;
+            switch(CurrentPlayer)
+            {
+                case 1:
+                    CurrentPlayer = 2;
+                    break;
+                case 2:
+                    CurrentPlayer = 1;
+                    break;
+            }
         }
 
         //Resets the board

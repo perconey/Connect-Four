@@ -37,6 +37,21 @@ namespace ConnectFour.Tests
             ShowFieldsColors(fm);
         }
 
+        [TestMethod]
+        public void SimulatePinAddingTest()
+        {
+            //Arrange
+            var gm = new Game();
+
+            //Act
+            var fm = gm.FieldsMap;
+            gm.AddPin(2); gm.AddPin(0); gm.AddPin(6); gm.AddPin(2);
+            gm.AddPin(1); gm.AddPin(3); gm.AddPin(6); gm.AddPin(1);
+            gm.AddPin(5); gm.AddPin(0); gm.AddPin(2); gm.AddPin(0);
+
+            //Check
+            ShowFieldsColors(fm);
+        }
 
         [TestMethod]
         public void PinAddBlankTest()
@@ -86,19 +101,31 @@ namespace ConnectFour.Tests
         }
 
         [TestMethod]
-        public void FullColumnPinsAddTest()
+        public void FillUpEntireColumnTest()
         {
             //Arrange
             var g = new Game();
 
             //Act
             var fm = g.FieldsMap;
-            g.AddPin(2);
-            g.AddPin(2);
-            g.AddPin(2);
-            g.AddPin(2);
-            g.AddPin(2);
-            g.AddPin(2);
+            for (int i = 0; i < maxColumns - 1; i++)
+                g.AddPin(2);
+
+            //Check
+            ShowFields(fm);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(System.ArgumentException))]
+        public void AddPinToFullColumnTest()
+        {
+            //Arrange
+            var g = new Game();
+
+            //Act
+            var fm = g.FieldsMap;
+            for (int i = 0; i < maxColumns + 1; i++)
+                g.AddPin(2);
 
             //Check
             ShowFields(fm);
