@@ -8,12 +8,14 @@ namespace ConnectFour.Tests
     [TestClass]
     public class UnitTest1
     {
+        private int maxColumns = Game.GAME_COLUMNS;
+        private int maxRows = Game.GAME_ROWS_FOR_EACH_COLUMN;
+
         [TestMethod]
         public void DefTValCheck()
         {
             //Arrange
             var g = new Game();
-            int i = 0;
 
             //Act
             var fm = g.FieldsMap;
@@ -27,7 +29,6 @@ namespace ConnectFour.Tests
         {
             //Arrange
             var g = new Game();
-            int i = 0;
 
             //Act
             var fm = g.FieldsMap;
@@ -41,11 +42,62 @@ namespace ConnectFour.Tests
         public void PinAddBlankTest()
         {
             //Arrange
+            var gm = new Game();
+
+            //Act
+            var fm = gm.FieldsMap;
+            gm.AddPin(2);
+
+            //Check
+            ShowFields(fm);
+        }
+
+        [TestMethod]
+        public void MultiplePinsAddTest()
+        {
+            //Arrange
             var g = new Game();
-            int i = 0, l = 1;
 
             //Act
             var fm = g.FieldsMap;
+            g.AddPin(2);
+            g.AddPin(1);
+            g.AddPin(1);
+            g.AddPin(6);
+            g.AddPin(1);
+
+            //Check
+            ShowFields(fm);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(System.ArgumentException),
+        "This test methods expects pin adding failure and throwing an ArgumentException due to bad value provided in the first atgument")]
+        public void PinAddingExceptionTest()
+        {
+            //Arrange
+            var g = new Game();
+
+            //Act
+            var fm = g.FieldsMap;
+            g.AddPin(maxColumns + 1);
+
+            //Assert - ExceptedException     
+        }
+
+        [TestMethod]
+        public void FullColumnPinsAddTest()
+        {
+            //Arrange
+            var g = new Game();
+
+            //Act
+            var fm = g.FieldsMap;
+            g.AddPin(2);
+            g.AddPin(2);
+            g.AddPin(2);
+            g.AddPin(2);
+            g.AddPin(2);
             g.AddPin(2);
 
             //Check

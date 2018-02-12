@@ -5,9 +5,9 @@ namespace ConnectFour.Logic
 {
     public class Game
     {
-        private const int GAME_COLUMNS = 7;
-        private const int GAME_ROWS_FOR_EACH_COLUMN = 6;
-        private const int DEFAULT_STARTING_PLAYER = 1;
+        public const int GAME_COLUMNS = 7;
+        public const int GAME_ROWS_FOR_EACH_COLUMN = 6;
+        public const int DEFAULT_STARTING_PLAYER = 1;
 
         // PLAYER 1 - RED
         // PLAYER 2 - YELLOW
@@ -30,6 +30,9 @@ namespace ConnectFour.Logic
 
         public void AddPin(int column)
         {
+            if (column < 0 || column > GAME_COLUMNS - 1)
+                throw new ArgumentException("Bad column id provided");
+
             for(int i = 0; i < GAME_ROWS_FOR_EACH_COLUMN; i++)
             {
                 //When there are no pins in current column
@@ -47,6 +50,7 @@ namespace ConnectFour.Logic
                 {
                     // var na = new KeyValuePair<int, bool>[GAME_COLUMNS, GAME_ROWS_FOR_EACH_COLUMN];
                     FieldsMap[column, i - 1] = new KeyValuePair<int, bool>(CurrentPlayer, true);
+
                     if (i <= 0)
                         FullColumns.Add(column);
                 }
