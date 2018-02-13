@@ -84,8 +84,12 @@ namespace ConnectFour.Logic
                             if (FieldsMap[col + 1, row].Value == true && FieldsMap[col + 1, row].Key == currentlyCheckedPinColor)
                                 if (FieldsMap[col + 2, row].Value == true && FieldsMap[col + 2, row].Key == currentlyCheckedPinColor)
                                     if (FieldsMap[col + 3, row].Value == true && FieldsMap[col + 3, row].Key == currentlyCheckedPinColor)
+                                    {
                                         Winner = currentlyCheckedPinColor;
-                        }catch(Exception ex){ continue; }
+                                        return;
+                                    }
+
+                        }catch(Exception ex){ }
 
                         // \|/
                         try
@@ -93,9 +97,38 @@ namespace ConnectFour.Logic
                             if (FieldsMap[col, row + 1].Value == true && FieldsMap[col, row + 1].Key == currentlyCheckedPinColor)
                                 if (FieldsMap[col, row + 2].Value == true && FieldsMap[col, row + 2].Key == currentlyCheckedPinColor)
                                     if (FieldsMap[col, row + 3].Value == true && FieldsMap[col, row + 3].Key == currentlyCheckedPinColor)
+                                    {
                                         Winner = currentlyCheckedPinColor;
+                                        return;
+                                    }
                         }
-                        catch (Exception ex) { continue; }
+                        catch (Exception ex) { }
+
+                        // \|\
+                        try
+                        {
+                            if (FieldsMap[col + 1, row + 1].Value == true && FieldsMap[col + 1, row + 1].Key == currentlyCheckedPinColor)
+                                if (FieldsMap[col + 2, row + 2].Value == true && FieldsMap[col + 2, row + 2].Key == currentlyCheckedPinColor)
+                                    if (FieldsMap[col + 3, row + 3].Value == true && FieldsMap[col + 3, row + 3].Key == currentlyCheckedPinColor)
+                                    {
+                                        Winner = currentlyCheckedPinColor;
+                                        return;
+                                    }
+                        }
+                        catch (Exception ex) { }
+
+                        // / bottom left
+                        try
+                        {
+                            if (FieldsMap[col - 1, row + 1].Value == true && FieldsMap[col - 1, row + 1].Key == currentlyCheckedPinColor)
+                                if (FieldsMap[col - 2, row + 2].Value == true && FieldsMap[col - 2, row + 2].Key == currentlyCheckedPinColor)
+                                    if (FieldsMap[col - 3, row + 3].Value == true && FieldsMap[col - 3, row + 3].Key == currentlyCheckedPinColor)
+                                    {
+                                        Winner = currentlyCheckedPinColor;
+                                        return;
+                                    }
+                        }
+                        catch (Exception ex) { }
                     }
                 }
             }
