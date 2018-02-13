@@ -85,6 +85,19 @@
             </Button.Background>
         </Button>
         <!--#endregion-->
+        
+        <!--First column buttons-->
+        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="186,92,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="186,171,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="186,250,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="186,329,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="186,408,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="186,487,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        
+
+
+
+
 
     </Grid>
 </Window>
