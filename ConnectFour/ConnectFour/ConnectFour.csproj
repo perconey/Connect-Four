@@ -106,5 +106,11 @@
     <Resource Include="Resources\arrow.png" />
     <Resource Include="Resources\redarrow.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ConnectFour.Logic\ConnectFour.Logic.csproj">
+      <Project>{901EBD01-EF1D-42E7-81A7-A17075599B88}</Project>
+      <Name>ConnectFour.Logic</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
