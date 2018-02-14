@@ -93,59 +93,59 @@
         
         <!--COLUMN 1-->
         <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[0]}" Height="55" Margin="186,92,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
-        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="186,171,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
-        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="186,250,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
-        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="186,329,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
-        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="186,408,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
-        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="186,487,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[1]}" Height="55" Margin="186,171,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[2]}" Height="55" Margin="186,250,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[3]}" Height="55" Margin="186,329,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[4]}" Height="55" Margin="186,408,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[5]}" Height="55" Margin="186,487,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
         
         <!--COLUMN 2-->
-        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="265,92,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
-        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="265,171,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
-        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="265,250,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
-        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="265,329,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
-        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="265,408,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
-        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="265,487,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[6]}" Height="55" Margin="265,92,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[7]}" Height="55" Margin="265,171,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[8]}" Height="55" Margin="265,250,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[9]}" Height="55" Margin="265,329,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[10]}" Height="55" Margin="265,408,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[11]}" Height="55" Margin="265,487,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
 
         <!--COLUMN 3-->
-        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="344,92,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
-        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="344,171,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
-        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="344,250,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
-        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="344,329,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
-        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="344,408,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
-        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="344,487,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[12]}" Height="55" Margin="344,92,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[13]}" Height="55" Margin="344,171,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[14]}" Height="55" Margin="344,250,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[15]}" Height="55" Margin="344,329,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[16]}" Height="55" Margin="344,408,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[17]}" Height="55" Margin="344,487,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
 
         <!--COLUMN 4-->
-        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="423,92,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
-        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="423,171,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
-        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="423,250,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
-        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="423,329,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
-        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="423,408,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
-        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="423,487,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[18]}" Height="55" Margin="423,92,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[19]}" Height="55" Margin="423,171,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[20]}" Height="55" Margin="423,250,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[21]}" Height="55" Margin="423,329,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[22]}" Height="55" Margin="423,408,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[23]}" Height="55" Margin="423,487,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
 
         <!--COLUMN 5-->
-        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="502,92,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
-        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="502,171,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
-        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="502,250,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
-        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="502,329,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
-        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="502,408,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
-        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="502,487,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[24]}" Height="55" Margin="502,92,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[25]}" Height="55" Margin="502,171,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[26]}" Height="55" Margin="502,250,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[27]}" Height="55" Margin="502,329,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[28]}" Height="55" Margin="502,408,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[29]}" Height="55" Margin="502,487,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
         
         <!--COLUMN 6-->
-        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="581,92,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
-        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="581,171,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
-        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="581,250,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
-        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="581,329,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
-        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="581,408,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
-        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="581,487,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[30]}" Height="55" Margin="581,92,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[31]}" Height="55" Margin="581,171,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[32]}" Height="55" Margin="581,250,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[33]}" Height="55" Margin="581,329,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[34]}" Height="55" Margin="581,408,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[35]}" Height="55" Margin="581,487,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
 
         <!--COLUMN 7-->
-        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="660,92,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
-        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="660,171,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
-        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="660,250,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
-        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="660,329,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
-        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="660,408,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
-        <Image HorizontalAlignment="Left" Source="/Resources/pyellow.png" Height="55" Margin="660,487,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[36]}" Height="55" Margin="660,92,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[37]}" Height="55" Margin="660,171,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[38]}" Height="55" Margin="660,250,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[39]}" Height="55" Margin="660,329,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[40]}" Height="55" Margin="660,408,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[41]}" Height="55" Margin="660,487,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
 
 
 

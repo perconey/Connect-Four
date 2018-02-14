@@ -10,7 +10,7 @@ namespace ConnectFour.ViewModel
 
         private Game _game = new Game();
         private GameBoardMapper _mapper = new GameBoardMapper();
-        private string[,] mappedLocs = null;
+        private string[] mappedLocs = null;
 
         public ICommand Column1PinAddClick { get; set; }
         public ICommand Column2PinAddClick { get; set; }
@@ -30,7 +30,7 @@ namespace ConnectFour.ViewModel
             }
         }
 
-        public string[,] MappedLocs {
+        public string[] MappedLocs {
             get => mappedLocs;
             set
             {
