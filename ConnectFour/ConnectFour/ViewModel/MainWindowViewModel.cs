@@ -1,5 +1,6 @@
 ﻿using ConnectFour.Logic;
 using System.ComponentModel;
+using System.Windows;
 using System.Windows.Input;
 
 namespace ConnectFour.ViewModel
@@ -17,6 +18,22 @@ namespace ConnectFour.ViewModel
         private Game _game = new Game();
         public Game Game { get => _game; set => _game = value; }
 
+        public MainWindowViewModel()
+        {
+            Column1PinAddClick = new RelayCommand(genericpopup, o => true);
+            Column2PinAddClick = new RelayCommand(genericpopup, o => true);
+            Column3PinAddClick = new RelayCommand(genericpopup, o => true);
+            Column4PinAddClick = new RelayCommand(genericpopup, o => true);
+            Column5PinAddClick = new RelayCommand(genericpopup, o => true);
+            Column6PinAddClick = new RelayCommand(genericpopup, o => true);
+            Column7PinAddClick = new RelayCommand(genericpopup, o => true);
+
+        }
+
+        public void genericpopup(object o)
+        {
+            MessageBox.Show("Popup b");
+        }
         public event PropertyChangedEventHandler PropertyChanged;
         public void NotifyPropertyChanged(string propertyName)
         {
