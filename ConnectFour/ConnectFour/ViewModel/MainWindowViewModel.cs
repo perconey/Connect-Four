@@ -18,22 +18,51 @@ namespace ConnectFour.ViewModel
         private Game _game = new Game();
         public Game Game { get => _game; set => _game = value; }
 
+        public GameBoardMapper mapper = new GameBoardMapper();
+
+
         public MainWindowViewModel()
         {
-            Column1PinAddClick = new RelayCommand(genericpopup, o => true);
-            Column2PinAddClick = new RelayCommand(genericpopup, o => true);
-            Column3PinAddClick = new RelayCommand(genericpopup, o => true);
-            Column4PinAddClick = new RelayCommand(genericpopup, o => true);
-            Column5PinAddClick = new RelayCommand(genericpopup, o => true);
-            Column6PinAddClick = new RelayCommand(genericpopup, o => true);
-            Column7PinAddClick = new RelayCommand(genericpopup, o => true);
+            Column1PinAddClick = new RelayCommand(Column1Click, o => true);
+            Column2PinAddClick = new RelayCommand(Column2Click, o => true);
+            Column3PinAddClick = new RelayCommand(Column3Click, o => true);
+            Column4PinAddClick = new RelayCommand(Column4Click, o => true);
+            Column5PinAddClick = new RelayCommand(Column5Click, o => true);
+            Column6PinAddClick = new RelayCommand(Column6Click, o => true);
+            Column7PinAddClick = new RelayCommand(Column7Click, o => true);
 
         }
 
-        public void genericpopup(object o)
+        public void Column1Click(object o)
         {
-            MessageBox.Show("Popup b");
+            MessageBox.Show("Popup 1");
         }
+
+        public void Column2Click(object o)
+        {
+            MessageBox.Show("Popup 2");
+        }
+        public void Column3Click(object o)
+        {
+            MessageBox.Show("Popup 3");
+        }
+        public void Column4Click(object o)
+        {
+            MessageBox.Show("Popup 4");
+        }
+        public void Column5Click(object o)
+        {
+            MessageBox.Show("Popup 5");
+        }
+        public void Column6Click(object o)
+        {
+            MessageBox.Show("Popup 6");
+        }
+        public void Column7Click(object o)
+        {
+            MessageBox.Show("Popup 7");
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         public void NotifyPropertyChanged(string propertyName)
         {
