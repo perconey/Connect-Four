@@ -53,45 +53,45 @@ namespace ConnectFour.ViewModel
 
         public void Column1Click(object o)
         {
-            Game.AddPin(1);
+            Game.AddPin(0);
             UpdateMapping();
         }
 
         public void Column2Click(object o)
         {
-            Game.AddPin(2);
+            Game.AddPin(1);
             UpdateMapping();
         }
         public void Column3Click(object o)
         {
-            Game.AddPin(3);
+            Game.AddPin(2);
             UpdateMapping();
         }
         public void Column4Click(object o)
         {
-            Game.AddPin(4);
+            Game.AddPin(3);
             UpdateMapping();
         }
         public void Column5Click(object o)
         {
-            Game.AddPin(5);
+            Game.AddPin(4);
             UpdateMapping();
         }
         public void Column6Click(object o)
         {
-            Game.AddPin(6);
+            Game.AddPin(5);
             UpdateMapping();
         }
         public void Column7Click(object o)
         {
-            Game.AddPin(7);
+            Game.AddPin(6);
             UpdateMapping();
         }
 
         private void UpdateMapping()
         {
             Mapper.MapToFileName(Game);
-            mappedLocs = Mapper.FileNameMapper;
+            MappedLocs = Mapper.FileNameMapper;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

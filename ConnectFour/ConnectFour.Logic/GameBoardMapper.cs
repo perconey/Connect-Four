@@ -4,8 +4,27 @@ namespace ConnectFour.Logic
     public class GameBoardMapper
     {
         private string[] _fileNameMapper = new string[42];
+        private string[] _arrowIndicatorControllers = new string[7]
+        {
+            "Visible","Visible","Visible","Visible","Visible","Visible","Visible"
+        };
+
 
         public string[] FileNameMapper { get => _fileNameMapper; set => _fileNameMapper = value; }
+        public string[] ArrowIndicatorControllers { get => _arrowIndicatorControllers; set => _arrowIndicatorControllers = value; }
+
+        public GameBoardMapper()
+        {
+
+        }
+
+        public void DiscardFilledColumnIndicators(Game gm)
+        {
+            foreach(var item in gm.FullColumns)
+            {
+                ArrowIndicatorControllers[item] = "Hidden";
+            }
+        }
 
         public void MapToFileName(Game gm)
         {
