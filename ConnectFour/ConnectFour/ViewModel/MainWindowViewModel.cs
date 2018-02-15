@@ -12,6 +12,7 @@ namespace ConnectFour.ViewModel
         private GameBoardMapper _mapper = new GameBoardMapper();
         private string[] mappedLocs = null;
         private string[] mappedDiscardedArrows = null;
+        private string currentTurn;
 
         public ICommand Column1PinAddClick { get; set; }
         public ICommand Column2PinAddClick { get; set; }
@@ -49,6 +50,15 @@ namespace ConnectFour.ViewModel
             }
         }
 
+        public string CurrentTurn {
+            get => currentTurn;
+            set
+            {
+                currentTurn = value;
+                NotifyPropertyChanged("CurrentTurn");
+            }
+        }
+
         public MainWindowViewModel()
         {
             Column1PinAddClick = new RelayCommand(Column1Click, o => true);
@@ -60,6 +70,7 @@ namespace ConnectFour.ViewModel
             Column7PinAddClick = new RelayCommand(Column7Click, o => true);
             mappedLocs = Mapper.FileNameMapper;
             mappedDiscardedArrows = Mapper.ArrowIndicatorControllers;
+            CurrentTurn = Mapper.CurrentTurn;
         }
 
         public void Column1Click(object o)
@@ -104,8 +115,10 @@ namespace ConnectFour.ViewModel
         {
             Mapper.MapToFileName(Game);
             Mapper.DiscardFilledColumnIndicators(Game);
+            Mapper.UpdateTurnIndicator(Game);
             MappedLocs = Mapper.FileNameMapper;
             MappedDiscardedArrows = Mapper.ArrowIndicatorControllers;
+            CurrentTurn = Mapper.CurrentTurn;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

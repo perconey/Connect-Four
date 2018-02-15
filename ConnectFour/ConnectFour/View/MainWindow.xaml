@@ -29,14 +29,14 @@
         </Style>
         <!--#endregion-->
     </Window.Resources>
-    
+
     <Window.DataContext>
         <ViewModel:MainWindowViewModel/>
     </Window.DataContext>
-    
+
     <Grid>
         <!--Board image-->
-        <Button Content="Button" HorizontalAlignment="Left" Height="50" Margin="2,79,0,0" VerticalAlignment="Top" Width="157"/>
+        <Button Content="Reset" HorizontalAlignment="Left" Height="39" Margin="18,67,0,0" VerticalAlignment="Top" Width="122"/>
 
         <Image HorizontalAlignment="Left" Source="/Resources/c4board.png" Height="502" Margin="161,66,0,0" VerticalAlignment="Top" Width="580"/>
 
@@ -90,7 +90,9 @@
             </Button.Background>
         </Button>
         <!--#endregion-->
-        
+
+        <Image HorizontalAlignment="Left" Source="{Binding CurrentTurn}" Height="55" Margin="50,487,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+
         <!--COLUMN 1-->
         <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[0]}" Height="55" Margin="186,92,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
         <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[1]}" Height="55" Margin="186,171,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
@@ -98,7 +100,7 @@
         <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[3]}" Height="55" Margin="186,329,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
         <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[4]}" Height="55" Margin="186,408,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
         <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[5]}" Height="55" Margin="186,487,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
-        
+
         <!--COLUMN 2-->
         <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[6]}" Height="55" Margin="265,92,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
         <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[7]}" Height="55" Margin="265,171,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
@@ -130,7 +132,7 @@
         <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[27]}" Height="55" Margin="502,329,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
         <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[28]}" Height="55" Margin="502,408,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
         <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[29]}" Height="55" Margin="502,487,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
-        
+
         <!--COLUMN 6-->
         <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[30]}" Height="55" Margin="581,92,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
         <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[31]}" Height="55" Margin="581,171,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
@@ -146,6 +148,8 @@
         <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[39]}" Height="55" Margin="660,329,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
         <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[40]}" Height="55" Margin="660,408,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
         <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[41]}" Height="55" Margin="660,487,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
+
+        <Label Content="Current player" HorizontalAlignment="Left" Height="28" Margin="18,454,0,0" VerticalAlignment="Top" Width="121" HorizontalContentAlignment="Center"/>
 
 
 

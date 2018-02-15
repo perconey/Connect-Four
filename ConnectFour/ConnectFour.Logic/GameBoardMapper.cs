@@ -8,13 +8,46 @@ namespace ConnectFour.Logic
         {
             "Visible","Visible","Visible","Visible","Visible","Visible","Visible"
         };
-
+        private string currentTurn = "";
 
         public string[] FileNameMapper { get => _fileNameMapper; set => _fileNameMapper = value; }
         public string[] ArrowIndicatorControllers { get => _arrowIndicatorControllers; set => _arrowIndicatorControllers = value; }
+        public string CurrentTurn { get => currentTurn; set => currentTurn = value; }
 
         public GameBoardMapper()
         {
+            GetDefaultStartingPlayerMap();
+        }    
+
+        public void GetDefaultStartingPlayerMap()
+        {
+            switch(Game.DEFAULT_STARTING_PLAYER)
+            {
+                case 1:
+                    currentTurn = "/Resources/pyellow.png";
+                    break;
+                case 2:
+                    currentTurn = "/Resources/pred.png";
+                    break;
+                default:
+                    break;
+            }
+            //Unreachable code marked due to compiler not knowing the possibility to change DSP with config file
+        }
+
+        public void UpdateTurnIndicator(Game gm)
+        {
+            switch (gm.CurrentPlayer)
+            {
+                case 1:
+                    currentTurn = "/Resources/pyellow.png";
+                    break;
+                case 2:
+                    currentTurn = "/Resources/pred.png";
+                    break;
+                default:
+                    break;
+            }
 
         }
 
