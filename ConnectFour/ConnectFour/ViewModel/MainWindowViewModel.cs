@@ -11,6 +11,7 @@ namespace ConnectFour.ViewModel
         private Game _game = new Game();
         private GameBoardMapper _mapper = new GameBoardMapper();
         private string[] mappedLocs = null;
+        private string[] mappedDiscardedArrows = null;
 
         public ICommand Column1PinAddClick { get; set; }
         public ICommand Column2PinAddClick { get; set; }
@@ -39,6 +40,15 @@ namespace ConnectFour.ViewModel
             }
         }
 
+        public string[] MappedDiscardedArrows {
+            get => mappedDiscardedArrows;
+            set
+            {
+                mappedDiscardedArrows = value;
+                NotifyPropertyChanged("MappedDiscardedArrows");
+            }
+        }
+
         public MainWindowViewModel()
         {
             Column1PinAddClick = new RelayCommand(Column1Click, o => true);
@@ -49,6 +59,7 @@ namespace ConnectFour.ViewModel
             Column6PinAddClick = new RelayCommand(Column6Click, o => true);
             Column7PinAddClick = new RelayCommand(Column7Click, o => true);
             mappedLocs = Mapper.FileNameMapper;
+            mappedDiscardedArrows = Mapper.ArrowIndicatorControllers;
         }
 
         public void Column1Click(object o)
@@ -86,12 +97,15 @@ namespace ConnectFour.ViewModel
         {
             Game.AddPin(6);
             UpdateMapping();
+            
         }
 
         private void UpdateMapping()
         {
             Mapper.MapToFileName(Game);
+            Mapper.DiscardFilledColumnIndicators(Game);
             MappedLocs = Mapper.FileNameMapper;
+            MappedDiscardedArrows = Mapper.ArrowIndicatorControllers;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
