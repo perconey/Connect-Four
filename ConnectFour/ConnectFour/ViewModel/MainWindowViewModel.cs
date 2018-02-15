@@ -10,7 +10,8 @@ namespace ConnectFour.ViewModel
 
         private Game _game = new Game();
         private GameBoardMapper _mapper = new GameBoardMapper();
-        private string[] mappedLocs = null;
+        private string[] mappedLocs = new string[42];
+
         private string[] mappedDiscardedArrows = null;
         private string currentTurn;
 

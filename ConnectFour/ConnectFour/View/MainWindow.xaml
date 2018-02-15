@@ -83,7 +83,7 @@
             </Button.Background>
         </Button>
 
-        <Button Visibility="{Binding MappedDiscardedArrows[7]}" Name="b7" Command="{Binding Column7PinAddClick}" Style="{DynamicResource NoMouseOverButton}"
+        <Button Visibility="{Binding MappedDiscardedArrows[6]}" Name="b7" Command="{Binding Column7PinAddClick}" Style="{DynamicResource NoMouseOverButton}"
             HorizontalAlignment="Left" Height="57.333" Margin="660.337,3.667,0,0" VerticalAlignment="Top" Width="56.168" BorderThickness="0" BorderBrush="{x:Null}" Foreground="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="/ConnectFour;component/Resources/arrow.png"/>
