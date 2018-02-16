@@ -71,7 +71,7 @@ namespace ConnectFour.Logic
                     switch(imp)
                     {
                         case 0:
-                            FileNameMapper[index] = " ";
+                            FileNameMapper[index] = "/Resources/ph.png";
                             break;
                         case 1:
                             FileNameMapper[index] = "/Resources/pyellow.png";
