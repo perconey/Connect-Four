@@ -16,7 +16,7 @@ namespace ConnectFour.Logic
         private int _currentPlayer;
         private List<int> _fullColumns = new List<int>();
         private int _turnsCount;
-        private List<KeyValuePair<int, int>> fieldsToCheck = new List<int>();
+        private List<KeyValuePair<int, int>> fieldsToCheck = new List<KeyValuePair<int, int>>();
 
         public KeyValuePair<int, bool>[,] FieldsMap { get => _fieldsMap; set => _fieldsMap = value; }
 
@@ -80,9 +80,9 @@ namespace ConnectFour.Logic
         {
             foreach(var item in FieldsToCheck)
             {
-                int currentlyCheckedPinColor = 0;
-                currentlyCheckedPinColor = FieldsMap[item.Key, item.Value].Key;
+                int currentlyCheckedPinColor = FieldsMap[item.Key, item.Value].Key;
                 // ->
+                if(item.Key < 4)
                 try
                 {
                     for (int i = 1; i < 4; i++)
@@ -102,7 +102,8 @@ namespace ConnectFour.Logic
                 }
                 catch (Exception ex) { }
 
-                try
+                if (item.Value < 4)
+                    try
                 {
                     for(int i = 1; i < 4; i++)
                     {
@@ -123,7 +124,8 @@ namespace ConnectFour.Logic
                 catch (Exception ex) { }
 
                 // \|\
-                try
+                if (item.Value < 4 && item.Key < 4)
+                    try
                 {
                     for (int i = 1; i < 4; i++)
                     {
@@ -143,7 +145,8 @@ namespace ConnectFour.Logic
                 catch (Exception ex) { }
 
                 // / bottom left
-                try
+                if (item.Value < 4 && item.Key > 2)
+                    try
                 {
                     for (int i = 1; i < 4; i++)
                     {
