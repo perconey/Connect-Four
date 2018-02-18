@@ -82,9 +82,7 @@ namespace ConnectFour.Logic
             {
                 int currentlyCheckedPinColor = FieldsMap[item.Key, item.Value].Key;
                 // ->
-                if(item.Key < 4)
-                try
-                {
+                if(item.Key < GAME_COLUMNS - 3)
                     for (int i = 1; i < 4; i++)
                     {
                         if ((FieldsMap[item.Key + i, item.Value].Value == true && FieldsMap[item.Key + i, item.Value].Key == currentlyCheckedPinColor))
@@ -99,15 +97,10 @@ namespace ConnectFour.Logic
                         else
                             break;
                     }
-                }
-                catch (Exception ex) { }
-
-                if (item.Value < 4)
-                    try
-                {
+                // \|/
+                if (item.Value < GAME_COLUMNS - 3)
                     for(int i = 1; i < 4; i++)
                     {
-                        // \|/
                         if ((FieldsMap[item.Key, item.Value + i].Value == true && FieldsMap[item.Key, item.Value + i].Key == currentlyCheckedPinColor))
                         {
                             if (i == 3)
@@ -120,13 +113,9 @@ namespace ConnectFour.Logic
                         else
                             break;
                     }
-                }
-                catch (Exception ex) { }
 
                 // \|\
-                if (item.Value < 4 && item.Key < 4)
-                    try
-                {
+                if (item.Value < GAME_COLUMNS - 3 && item.Key < GAME_COLUMNS - 3)
                     for (int i = 1; i < 4; i++)
                     {
                         if ((FieldsMap[item.Key + i, item.Value + i].Value == true && FieldsMap[item.Key + i, item.Value + i].Key == currentlyCheckedPinColor))
@@ -141,13 +130,9 @@ namespace ConnectFour.Logic
                         else
                             break;
                     }
-                }
-                catch (Exception ex) { }
 
                 // / bottom left
-                if (item.Value < 4 && item.Key > 2)
-                    try
-                {
+                if (item.Value < GAME_COLUMNS - 3 && item.Key > 2)
                     for (int i = 1; i < 4; i++)
                     {
                         if ((FieldsMap[item.Key - i, item.Value + i].Value == true && FieldsMap[item.Key - i, item.Value + i].Key == currentlyCheckedPinColor))
@@ -162,8 +147,6 @@ namespace ConnectFour.Logic
                         else
                             break;
                     }
-                }
-                catch (Exception ex) { }
             }
         }
 
