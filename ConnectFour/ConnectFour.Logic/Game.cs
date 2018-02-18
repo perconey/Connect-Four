@@ -16,6 +16,7 @@ namespace ConnectFour.Logic
         private int _currentPlayer;
         private List<int> _fullColumns = new List<int>();
         private int _turnsCount;
+        private List<KeyValuePair<int, int>> fieldsToCheck = new List<int>();
 
         public KeyValuePair<int, bool>[,] FieldsMap { get => _fieldsMap; set => _fieldsMap = value; }
 
@@ -24,6 +25,8 @@ namespace ConnectFour.Logic
         public int CurrentPlayer { get => _currentPlayer; set => _currentPlayer = value; }
 
         public int TurnsCount { get => _turnsCount; set => _turnsCount = value; }
+
+        public List<KeyValuePair<int,int>> FieldsToCheck { get => fieldsToCheck; set => fieldsToCheck = value; }
 
         public int Winner = 0;
 
@@ -48,6 +51,7 @@ namespace ConnectFour.Logic
                 if(FieldsMap[column, GAME_ROWS_FOR_EACH_COLUMN - 1].Value == false)
                 {
                     FieldsMap[column, GAME_ROWS_FOR_EACH_COLUMN - 1] = new KeyValuePair<int, bool>(CurrentPlayer, true);
+                    FieldsToCheck.Add(new KeyValuePair<int, int>(column, GAME_ROWS_FOR_EACH_COLUMN - 1));
                     break;
                 }
 
@@ -59,6 +63,7 @@ namespace ConnectFour.Logic
                 {
                     // var na = new KeyValuePair<int, bool>[GAME_COLUMNS, GAME_ROWS_FOR_EACH_COLUMN];
                     FieldsMap[column, i - 1] = new KeyValuePair<int, bool>(CurrentPlayer, true);
+                    FieldsToCheck.Add(new KeyValuePair<int, int>(column, i - 1));
                     if (i == 1)
                         FullColumns.Add(column);
                     break;
@@ -73,67 +78,89 @@ namespace ConnectFour.Logic
 
         private void CheckWinningState()
         {
-            int currentlyCheckedPinColor = 0;
-            for(int col = 0; col < GAME_COLUMNS; col++)
+            foreach(var item in FieldsToCheck)
             {
-                for(int row = 0; row < GAME_ROWS_FOR_EACH_COLUMN; row++)
+                int currentlyCheckedPinColor = 0;
+                currentlyCheckedPinColor = FieldsMap[item.Key, item.Value].Key;
+                // ->
+                try
                 {
-                    if(FieldsMap[col,row].Value == true)
+                    for (int i = 1; i < 4; i++)
                     {
-                        currentlyCheckedPinColor = FieldsMap[col, row].Key;
-                        // ->
-                        try
+                        if ((FieldsMap[item.Key + i, item.Value].Value == true && FieldsMap[item.Key + i, item.Value].Key == currentlyCheckedPinColor))
                         {
-                            if (FieldsMap[col + 1, row].Value == true && FieldsMap[col + 1, row].Key == currentlyCheckedPinColor)
-                                if (FieldsMap[col + 2, row].Value == true && FieldsMap[col + 2, row].Key == currentlyCheckedPinColor)
-                                    if (FieldsMap[col + 3, row].Value == true && FieldsMap[col + 3, row].Key == currentlyCheckedPinColor)
-                                    {
-                                        Winner = currentlyCheckedPinColor;
-                                        return;
-                                    }
-
-                        }catch(Exception ex){ }
-
-                        // \|/
-                        try
-                        {
-                            if (FieldsMap[col, row + 1].Value == true && FieldsMap[col, row + 1].Key == currentlyCheckedPinColor)
-                                if (FieldsMap[col, row + 2].Value == true && FieldsMap[col, row + 2].Key == currentlyCheckedPinColor)
-                                    if (FieldsMap[col, row + 3].Value == true && FieldsMap[col, row + 3].Key == currentlyCheckedPinColor)
-                                    {
-                                        Winner = currentlyCheckedPinColor;
-                                        return;
-                                    }
+                            if (i == 3)
+                            {
+                                Winner = currentlyCheckedPinColor;
+                                return;
+                            }
+                            continue;
                         }
-                        catch (Exception ex) { }
-
-                        // \|\
-                        try
-                        {
-                            if (FieldsMap[col + 1, row + 1].Value == true && FieldsMap[col + 1, row + 1].Key == currentlyCheckedPinColor)
-                                if (FieldsMap[col + 2, row + 2].Value == true && FieldsMap[col + 2, row + 2].Key == currentlyCheckedPinColor)
-                                    if (FieldsMap[col + 3, row + 3].Value == true && FieldsMap[col + 3, row + 3].Key == currentlyCheckedPinColor)
-                                    {
-                                        Winner = currentlyCheckedPinColor;
-                                        return;
-                                    }
-                        }
-                        catch (Exception ex) { }
-
-                        // / bottom left
-                        try
-                        {
-                            if (FieldsMap[col - 1, row + 1].Value == true && FieldsMap[col - 1, row + 1].Key == currentlyCheckedPinColor)
-                                if (FieldsMap[col - 2, row + 2].Value == true && FieldsMap[col - 2, row + 2].Key == currentlyCheckedPinColor)
-                                    if (FieldsMap[col - 3, row + 3].Value == true && FieldsMap[col - 3, row + 3].Key == currentlyCheckedPinColor)
-                                    {
-                                        Winner = currentlyCheckedPinColor;
-                                        return;
-                                    }
-                        }
-                        catch (Exception ex) { }
+                        else
+                            break;
                     }
                 }
+                catch (Exception ex) { }
+
+                try
+                {
+                    for(int i = 1; i < 4; i++)
+                    {
+                        // \|/
+                        if ((FieldsMap[item.Key, item.Value + i].Value == true && FieldsMap[item.Key, item.Value + i].Key == currentlyCheckedPinColor))
+                        {
+                            if (i == 3)
+                            {
+                                Winner = currentlyCheckedPinColor;
+                                return;
+                            }
+                            continue;
+                        }
+                        else
+                            break;
+                    }
+                }
+                catch (Exception ex) { }
+
+                // \|\
+                try
+                {
+                    for (int i = 1; i < 4; i++)
+                    {
+                        if ((FieldsMap[item.Key + i, item.Value + i].Value == true && FieldsMap[item.Key + i, item.Value + i].Key == currentlyCheckedPinColor))
+                        {
+                            if (i == 3)
+                            {
+                                Winner = currentlyCheckedPinColor;
+                                return;
+                            }
+                            continue;
+                        }
+                        else
+                            break;
+                    }
+                }
+                catch (Exception ex) { }
+
+                // / bottom left
+                try
+                {
+                    for (int i = 1; i < 4; i++)
+                    {
+                        if ((FieldsMap[item.Key - i, item.Value + i].Value == true && FieldsMap[item.Key - i, item.Value + i].Key == currentlyCheckedPinColor))
+                        {
+                            if (i == 3)
+                            {
+                                Winner = currentlyCheckedPinColor;
+                                return;
+                            }
+                            continue;
+                        }
+                        else
+                            break;
+                    }
+                }
+                catch (Exception ex) { }
             }
         }
 
