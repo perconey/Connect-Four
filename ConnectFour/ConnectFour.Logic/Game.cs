@@ -13,20 +13,23 @@ namespace ConnectFour.Logic
         // PLAYER 2 - YELLOW
 
         private KeyValuePair<int, bool>[,] _fieldsMap = new KeyValuePair<int, bool>[GAME_COLUMNS, GAME_ROWS_FOR_EACH_COLUMN];
+        private int _currentPlayer;
+        private List<int> _fullColumns = new List<int>();
+        private int _turnsCount;
 
         public KeyValuePair<int, bool>[,] FieldsMap { get => _fieldsMap; set => _fieldsMap = value; }
 
-        private List<int> _fullColumns = new List<int>();
         public List<int> FullColumns { get => _fullColumns; set => _fullColumns = value; }
 
         public int CurrentPlayer { get => _currentPlayer; set => _currentPlayer = value; }
 
-        private int _currentPlayer;
+        public int TurnsCount { get => _turnsCount; set => _turnsCount = value; }
 
         public int Winner = 0;
 
         public Game()
         {
+            TurnsCount = 0;
             CurrentPlayer = DEFAULT_STARTING_PLAYER;
         }
 
@@ -62,9 +65,9 @@ namespace ConnectFour.Logic
                 }
             }
 
-            SwapPlayerTurn();
+            SwapPlayerAndNextTurn();
 
-            //MAKE FIRST CHECKING DEALYED UNTIL 8th TURN FOR AVOIDING UNWANTED CALCULATIONS!
+            if(TurnsCount >= 7)
             CheckWinningState();
         }
 
@@ -134,8 +137,9 @@ namespace ConnectFour.Logic
             }
         }
 
-        private void SwapPlayerTurn()
+        private void SwapPlayerAndNextTurn()
         {
+            TurnsCount++;
             switch(CurrentPlayer)
             {
                 case 1:
@@ -147,9 +151,10 @@ namespace ConnectFour.Logic
             }
         }
 
-        //Resets the board
-        private void ResetFields()
+        //Resets the game
+        private void Reset()
         {
+            TurnsCount = 0;
             FieldsMap = new KeyValuePair<int, bool>[GAME_COLUMNS, GAME_ROWS_FOR_EACH_COLUMN];
         }
     }
