@@ -11,6 +11,7 @@ namespace ConnectFour.ViewModel
         private Game _game = new Game();
         private GameBoardMapper _mapper = new GameBoardMapper();
         private string[] mappedLocs = new string[42];
+        private int notifiedWinner = 0;
 
         private string[] mappedDiscardedArrows = null;
         private string currentTurn;
@@ -57,6 +58,16 @@ namespace ConnectFour.ViewModel
             {
                 currentTurn = value;
                 NotifyPropertyChanged("CurrentTurn");
+            }
+        }
+
+        public int NotifiedWinner
+        {
+            get => notifiedWinner;
+            set
+            {
+                notifiedWinner = value;
+                NotifyPropertyChanged("NotifiedWinner");
             }
         }
 
@@ -108,8 +119,7 @@ namespace ConnectFour.ViewModel
         public void Column7Click(object o)
         {
             Game.AddPin(6);
-            UpdateMapping();
-            
+            UpdateMapping();   
         }
 
         private void UpdateMapping()

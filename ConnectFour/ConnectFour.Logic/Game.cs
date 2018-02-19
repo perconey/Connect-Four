@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Windows;
 
 namespace ConnectFour.Logic
 {
@@ -78,9 +82,11 @@ namespace ConnectFour.Logic
 
         private void CheckWinningState()
         {
-            foreach(var item in FieldsToCheck)
+            //StringBuilder s = new StringBuilder();
+            foreach (var item in FieldsToCheck)
             {
                 int currentlyCheckedPinColor = FieldsMap[item.Key, item.Value].Key;
+               // s.Append("PinColor: " + currentlyCheckedPinColor + " Column: " + item.Key + " Row: " + item.Value);
                 // ->
                 if(item.Key < GAME_COLUMNS - 3)
                     for (int i = 1; i < 4; i++)
@@ -115,7 +121,7 @@ namespace ConnectFour.Logic
                     }
 
                 // \|\
-                if (item.Value < GAME_COLUMNS - 3 && item.Key < GAME_COLUMNS - 3)
+                if (item.Value < GAME_COLUMNS - 4 && item.Key < GAME_COLUMNS - 4)
                     for (int i = 1; i < 4; i++)
                     {
                         if ((FieldsMap[item.Key + i, item.Value + i].Value == true && FieldsMap[item.Key + i, item.Value + i].Key == currentlyCheckedPinColor))
@@ -148,6 +154,7 @@ namespace ConnectFour.Logic
                             break;
                     }
             }
+           // MessageBox.Show(s.ToString());
         }
 
         private void SwapPlayerAndNextTurn()
