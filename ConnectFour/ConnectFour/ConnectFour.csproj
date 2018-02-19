@@ -115,5 +115,9 @@
   <ItemGroup>
     <Resource Include="Resources\ph.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\predMarked.png" />
+    <Resource Include="Resources\pyellowMarked.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

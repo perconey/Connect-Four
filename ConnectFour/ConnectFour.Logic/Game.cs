@@ -50,6 +50,11 @@ namespace ConnectFour.Logic
         /// PROPERTY IS SET TO TRUE
         /// IT WILL TAKE VALUES OF FIELDS RESPONSIBLE
         /// FOR TRIGGERING IT
+        /// 
+        /// 
+        /// 
+        /// 
+        /// 
         /// </summary>
         public Game()
         {
