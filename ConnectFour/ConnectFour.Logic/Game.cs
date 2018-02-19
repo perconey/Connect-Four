@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Windows;
 
 namespace ConnectFour.Logic
 {
@@ -16,12 +12,13 @@ namespace ConnectFour.Logic
         // PLAYER 1 - YELLOW
         // PLAYER 2 - RED
 
-        private KeyValuePair<int, bool>[,] _fieldsMap = new KeyValuePair<int, bool>[GAME_COLUMNS, GAME_ROWS_FOR_EACH_COLUMN];
-        private int _currentPlayer;
         private List<int> _fullColumns = new List<int>();
+        private List<KeyValuePair<int, int>> _fieldsToCheck = new List<KeyValuePair<int, int>>();
+        private int _currentPlayer;
         private int _turnsCount;
-        private List<KeyValuePair<int, int>> fieldsToCheck = new List<KeyValuePair<int, int>>();
         private int _winnerId = 0;
+        private KeyValuePair<int, bool>[,] _fieldsMap = new KeyValuePair<int, bool>[GAME_COLUMNS, GAME_ROWS_FOR_EACH_COLUMN];
+        private KeyValuePair<int, int>[] _winningFieldsCoords = new KeyValuePair<int, int>[4];
 
         public KeyValuePair<int, bool>[,] FieldsMap { get => _fieldsMap; set => _fieldsMap = value; }
 
@@ -31,7 +28,7 @@ namespace ConnectFour.Logic
 
         public int TurnsCount { get => _turnsCount; set => _turnsCount = value; }
 
-        public List<KeyValuePair<int,int>> FieldsToCheck { get => fieldsToCheck; set => fieldsToCheck = value; }
+        public List<KeyValuePair<int,int>> FieldsToCheck { get => _fieldsToCheck; set => _fieldsToCheck = value; }
 
         public bool WinnerChanged = false;
 
@@ -45,6 +42,15 @@ namespace ConnectFour.Logic
             }
         }
 
+        public KeyValuePair<int, int>[] WinningFieldsCoords { get => _winningFieldsCoords; set => _winningFieldsCoords = value; }
+
+        /// <summary>
+        /// MAKE SECOND FUNCTION IN GAMEBOARD MAPPER
+        /// WHICH WILL TRIGGER AFTER WINNERCHANGED
+        /// PROPERTY IS SET TO TRUE
+        /// IT WILL TAKE VALUES OF FIELDS RESPONSIBLE
+        /// FOR TRIGGERING IT
+        /// </summary>
         public Game()
         {
             TurnsCount = 0;
