@@ -13,14 +13,15 @@ namespace ConnectFour.Logic
         public const int GAME_ROWS_FOR_EACH_COLUMN = 6;
         public const int DEFAULT_STARTING_PLAYER = 1;
 
-        // PLAYER 1 - RED
-        // PLAYER 2 - YELLOW
+        // PLAYER 1 - YELLOW
+        // PLAYER 2 - RED
 
         private KeyValuePair<int, bool>[,] _fieldsMap = new KeyValuePair<int, bool>[GAME_COLUMNS, GAME_ROWS_FOR_EACH_COLUMN];
         private int _currentPlayer;
         private List<int> _fullColumns = new List<int>();
         private int _turnsCount;
         private List<KeyValuePair<int, int>> fieldsToCheck = new List<KeyValuePair<int, int>>();
+        private int _winnerId = 0;
 
         public KeyValuePair<int, bool>[,] FieldsMap { get => _fieldsMap; set => _fieldsMap = value; }
 
@@ -32,7 +33,17 @@ namespace ConnectFour.Logic
 
         public List<KeyValuePair<int,int>> FieldsToCheck { get => fieldsToCheck; set => fieldsToCheck = value; }
 
-        public int Winner = 0;
+        public bool WinnerChanged = false;
+
+        public int WinnerId
+        {
+            get => _winnerId;
+            set
+            {
+                WinnerChanged = true;
+                _winnerId = value;
+            }
+        }
 
         public Game()
         {
@@ -95,7 +106,7 @@ namespace ConnectFour.Logic
                         {
                             if (i == 3)
                             {
-                                Winner = currentlyCheckedPinColor;
+                                WinnerId = currentlyCheckedPinColor;
                                 return;
                             }
                             continue;
@@ -104,14 +115,14 @@ namespace ConnectFour.Logic
                             break;
                     }
                 // \|/
-                if (item.Value < GAME_COLUMNS - 3)
+                if (item.Value < GAME_ROWS_FOR_EACH_COLUMN - 3)
                     for(int i = 1; i < 4; i++)
                     {
                         if ((FieldsMap[item.Key, item.Value + i].Value == true && FieldsMap[item.Key, item.Value + i].Key == currentlyCheckedPinColor))
                         {
                             if (i == 3)
                             {
-                                Winner = currentlyCheckedPinColor;
+                                WinnerId = currentlyCheckedPinColor;
                                 return;
                             }
                             continue;
@@ -121,14 +132,14 @@ namespace ConnectFour.Logic
                     }
 
                 // \|\
-                if (item.Value < GAME_COLUMNS - 4 && item.Key < GAME_COLUMNS - 4)
+                if(item.Key < GAME_COLUMNS - 3 && item.Value < GAME_ROWS_FOR_EACH_COLUMN - 3)
                     for (int i = 1; i < 4; i++)
                     {
                         if ((FieldsMap[item.Key + i, item.Value + i].Value == true && FieldsMap[item.Key + i, item.Value + i].Key == currentlyCheckedPinColor))
                         {
                             if (i == 3)
                             {
-                                Winner = currentlyCheckedPinColor;
+                                WinnerId = currentlyCheckedPinColor;
                                 return;
                             }
                             continue;
@@ -138,14 +149,14 @@ namespace ConnectFour.Logic
                     }
 
                 // / bottom left
-                if (item.Value < GAME_COLUMNS - 3 && item.Key > 2)
+                if (item.Key > 2 && item.Value < GAME_ROWS_FOR_EACH_COLUMN - 3)
                     for (int i = 1; i < 4; i++)
                     {
                         if ((FieldsMap[item.Key - i, item.Value + i].Value == true && FieldsMap[item.Key - i, item.Value + i].Key == currentlyCheckedPinColor))
                         {
                             if (i == 3)
                             {
-                                Winner = currentlyCheckedPinColor;
+                                WinnerId = currentlyCheckedPinColor;
                                 return;
                             }
                             continue;

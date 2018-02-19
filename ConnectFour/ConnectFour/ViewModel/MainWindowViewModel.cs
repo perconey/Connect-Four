@@ -67,6 +67,7 @@ namespace ConnectFour.ViewModel
             set
             {
                 notifiedWinner = value;
+                MessageBox.Show("The winner is:" + NotifiedWinner);
                 NotifyPropertyChanged("NotifiedWinner");
             }
         }
@@ -130,6 +131,8 @@ namespace ConnectFour.ViewModel
             MappedLocs = Mapper.FileNameMapper;
             MappedDiscardedArrows = Mapper.ArrowIndicatorControllers;
             CurrentTurn = Mapper.CurrentTurn;
+            if (Mapper.WinnerChanged(Game))
+                NotifiedWinner = Game.WinnerId;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -68,7 +68,7 @@ namespace ConnectFour.Tests
 
             //Assert & Check
             ShowFieldsColors(fm);
-            Assert.AreEqual(expectedWinner, gm.Winner);
+            Assert.AreEqual(expectedWinner, gm._winnerId);
         }
 
         [TestMethod]

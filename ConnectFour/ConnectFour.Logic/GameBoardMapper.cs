@@ -17,7 +17,15 @@ namespace ConnectFour.Logic
         public GameBoardMapper()
         {
             GetDefaultStartingPlayerMap();
-        }    
+        }   
+        
+        public bool WinnerChanged(Game gm)
+        {
+            if (gm.WinnerChanged == true)
+                return true;
+            else
+                return false;
+        }
 
         public void GetDefaultStartingPlayerMap()
         {
