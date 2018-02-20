@@ -44,18 +44,6 @@ namespace ConnectFour.Logic
 
         public KeyValuePair<int, int>[] WinningFieldsCoords { get => _winningFieldsCoords; set => _winningFieldsCoords = value; }
 
-        /// <summary>
-        /// MAKE SECOND FUNCTION IN GAMEBOARD MAPPER
-        /// WHICH WILL TRIGGER AFTER WINNERCHANGED
-        /// PROPERTY IS SET TO TRUE
-        /// IT WILL TAKE VALUES OF FIELDS RESPONSIBLE
-        /// FOR TRIGGERING IT
-        /// 
-        /// 
-        /// 
-        /// 
-        /// 
-        /// </summary>
         public Game()
         {
             TurnsCount = 0;
@@ -100,7 +88,7 @@ namespace ConnectFour.Logic
 
             if(TurnsCount >= 7)
             CheckWinningState();
-        }
+        }       
 
         private void CheckWinningState()
         {
@@ -118,6 +106,9 @@ namespace ConnectFour.Logic
                             if (i == 3)
                             {
                                 WinnerId = currentlyCheckedPinColor;
+                                var wfc = new KeyValuePair<int, int>[4];
+                                for (int t = 0; i < 4; i++)
+                                    wfc[i] = new KeyValuePair<int, int>(item.Key + t, item.Value);
                                 return;
                             }
                             continue;
@@ -134,6 +125,9 @@ namespace ConnectFour.Logic
                             if (i == 3)
                             {
                                 WinnerId = currentlyCheckedPinColor;
+                                var wfc = new KeyValuePair<int, int>[4];
+                                for (int t = 0; i < 4; i++)
+                                    wfc[i] = new KeyValuePair<int, int>(item.Key, item.Value + t);
                                 return;
                             }
                             continue;
@@ -151,6 +145,9 @@ namespace ConnectFour.Logic
                             if (i == 3)
                             {
                                 WinnerId = currentlyCheckedPinColor;
+                                var wfc = new KeyValuePair<int, int>[4];
+                                for (int t = 0; i < 4; i++)
+                                    wfc[i] = new KeyValuePair<int, int>(item.Key + t, item.Value + t);
                                 return;
                             }
                             continue;
@@ -168,6 +165,9 @@ namespace ConnectFour.Logic
                             if (i == 3)
                             {
                                 WinnerId = currentlyCheckedPinColor;
+                                var wfc = new KeyValuePair<int, int>[4];
+                                for (int t = 0; i < 4; i++)
+                                    wfc[i] = new KeyValuePair<int, int>(item.Key - t, item.Value + t);
                                 return;
                             }
                             continue;
