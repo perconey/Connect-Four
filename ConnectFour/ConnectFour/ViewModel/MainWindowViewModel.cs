@@ -125,14 +125,22 @@ namespace ConnectFour.ViewModel
 
         private void UpdateMapping()
         {
-            Mapper.MapToFileName(Game);
-            Mapper.DiscardFilledColumnIndicators(Game);
-            Mapper.UpdateTurnIndicator(Game);
+            if (Mapper.WinnerChanged(Game))
+            {
+                Mapper.MapToFileNameWin(Game);
+                NotifiedWinner = Game.WinnerId;
+                Mapper.DiscardFilledColumnIndicators(Game);
+            }
+            else
+            {
+                Mapper.MapToFileName(Game);
+                Mapper.DiscardFilledColumnIndicators(Game);
+                Mapper.UpdateTurnIndicator(Game);
+            }
+
             MappedLocs = Mapper.FileNameMapper;
             MappedDiscardedArrows = Mapper.ArrowIndicatorControllers;
             CurrentTurn = Mapper.CurrentTurn;
-            if (Mapper.WinnerChanged(Game))
-                NotifiedWinner = Game.WinnerId;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

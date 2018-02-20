@@ -1,4 +1,6 @@
 ﻿
+using System.Windows;
+
 namespace ConnectFour.Logic
 {
     public class GameBoardMapper
@@ -17,8 +19,8 @@ namespace ConnectFour.Logic
         public GameBoardMapper()
         {
             GetDefaultStartingPlayerMap();
-        }   
-        
+        }
+
         public bool WinnerChanged(Game gm)
         {
             if (gm.WinnerChanged == true)
@@ -29,7 +31,7 @@ namespace ConnectFour.Logic
 
         public void GetDefaultStartingPlayerMap()
         {
-            switch(Game.DEFAULT_STARTING_PLAYER)
+            switch (Game.DEFAULT_STARTING_PLAYER)
             {
                 case 1:
                     currentTurn = "/Resources/pyellow.png";
@@ -61,7 +63,7 @@ namespace ConnectFour.Logic
 
         public void DiscardFilledColumnIndicators(Game gm)
         {
-            foreach(var item in gm.FullColumns)
+            foreach (var item in gm.FullColumns)
             {
                 ArrowIndicatorControllers[item] = "Hidden";
             }
@@ -71,12 +73,12 @@ namespace ConnectFour.Logic
         {
             int column, row;
             int index = 0;
-            for(column = 0; column < 7; column++)
+            for (column = 0; column < 7; column++)
             {
-                for(row = 0; row < 6; row++)
+                for (row = 0; row < 6; row++)
                 {
-                   int imp = gm.FieldsMap[column, row].Key;
-                    switch(imp)
+                    int imp = gm.FieldsMap[column, row].Key;
+                    switch (imp)
                     {
                         case 0:
                             FileNameMapper[index] = "/Resources/ph.png";
@@ -92,5 +94,54 @@ namespace ConnectFour.Logic
                 }
             }
         }
+
+        public void MapToFileNameWin(Game gm)
+        {
+            int column, row;
+            int index = 0;
+            for (column = 0; column < 7; column++)
+            {
+                for (row = 0; row < 6; row++)
+                {
+                    bool alreadyAttached = false;
+                    int imp = gm.FieldsMap[column, row].Key;
+
+                    for (int inc = 0; inc < 4; inc++)
+                    {
+                        if (column == gm.WinningFieldsCoords[inc].Key && row == gm.WinningFieldsCoords[inc].Value)
+                        {
+                            switch (imp)
+                            {
+                                case 1:
+                                    FileNameMapper[index] = "/Resources/pyellowMarked.png";
+                                    break;
+                                case 2:
+                                    FileNameMapper[index] = "/Resources/predMarked.png";
+                                    break;
+                            }
+                            alreadyAttached = true;
+                        }
+                    }
+
+                    if(!alreadyAttached)
+                    {
+                        switch (imp)
+                        {
+                            case 0:
+                                FileNameMapper[index] = "/Resources/ph.png";
+                                break;
+                            case 1:
+                                FileNameMapper[index] = "/Resources/pyellow.png";
+                                break;
+                            case 2:
+                                FileNameMapper[index] = "/Resources/pred.png";
+                                break;
+                        }
+                    }
+                    index++;
+                }
+            }
+        }
+
     }
 }

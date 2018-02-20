@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows;
 
 namespace ConnectFour.Logic
 {
@@ -107,8 +108,9 @@ namespace ConnectFour.Logic
                             {
                                 WinnerId = currentlyCheckedPinColor;
                                 var wfc = new KeyValuePair<int, int>[4];
-                                for (int t = 0; i < 4; i++)
-                                    wfc[i] = new KeyValuePair<int, int>(item.Key + t, item.Value);
+                                for (int t = 0; t < 4; t++)
+                                    wfc[t] = new KeyValuePair<int, int>(item.Key + t, item.Value);
+                                WinningFieldsCoords = wfc;
                                 return;
                             }
                             continue;
@@ -126,8 +128,9 @@ namespace ConnectFour.Logic
                             {
                                 WinnerId = currentlyCheckedPinColor;
                                 var wfc = new KeyValuePair<int, int>[4];
-                                for (int t = 0; i < 4; i++)
-                                    wfc[i] = new KeyValuePair<int, int>(item.Key, item.Value + t);
+                                for (int t = 0; t < 4; t++)
+                                    wfc[t] = new KeyValuePair<int, int>(item.Key, item.Value + t);
+                                WinningFieldsCoords = wfc;
                                 return;
                             }
                             continue;
@@ -146,8 +149,9 @@ namespace ConnectFour.Logic
                             {
                                 WinnerId = currentlyCheckedPinColor;
                                 var wfc = new KeyValuePair<int, int>[4];
-                                for (int t = 0; i < 4; i++)
-                                    wfc[i] = new KeyValuePair<int, int>(item.Key + t, item.Value + t);
+                                for (int t = 0; t < 4; t++)
+                                    wfc[t] = new KeyValuePair<int, int>(item.Key + t, item.Value + t);
+                                WinningFieldsCoords = wfc;
                                 return;
                             }
                             continue;
@@ -166,8 +170,9 @@ namespace ConnectFour.Logic
                             {
                                 WinnerId = currentlyCheckedPinColor;
                                 var wfc = new KeyValuePair<int, int>[4];
-                                for (int t = 0; i < 4; i++)
-                                    wfc[i] = new KeyValuePair<int, int>(item.Key - t, item.Value + t);
+                                for (int t = 0; t < 4; t++)
+                                    wfc[t] = new KeyValuePair<int, int>(item.Key - t, item.Value + t);
+                                WinningFieldsCoords = wfc;
                                 return;
                             }
                             continue;
