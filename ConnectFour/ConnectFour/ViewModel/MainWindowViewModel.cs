@@ -67,7 +67,7 @@ namespace ConnectFour.ViewModel
             set
             {
                 notifiedWinner = value;
-                MessageBox.Show("The winner is:" + NotifiedWinner);
+               // MessageBox.Show("The winner is:" + NotifiedWinner);
                 NotifyPropertyChanged("NotifiedWinner");
             }
         }

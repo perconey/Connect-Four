@@ -201,8 +201,13 @@ namespace ConnectFour.Logic
         //Resets the game
         private void Reset()
         {
-            TurnsCount = 0;
-            FieldsMap = new KeyValuePair<int, bool>[GAME_COLUMNS, GAME_ROWS_FOR_EACH_COLUMN];
+            _turnsCount = 0;
+            _currentPlayer = DEFAULT_STARTING_PLAYER;
+            _winnerId = 0;
+            _fieldsMap = new KeyValuePair<int, bool>[GAME_COLUMNS, GAME_ROWS_FOR_EACH_COLUMN];
+            _winningFieldsCoords = new KeyValuePair<int, int>[4];
+            _fullColumns = new List<int>();
+            _fieldsToCheck = new List<KeyValuePair<int, int>>();
         }
     }
 }
