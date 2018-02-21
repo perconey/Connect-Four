@@ -21,6 +21,16 @@ namespace ConnectFour.Logic
             GetDefaultStartingPlayerMap();
         }
 
+        public void Reset()
+        {
+            _arrowIndicatorControllers = new string[7]
+            {
+                 "Visible","Visible","Visible","Visible","Visible","Visible","Visible"
+            };
+            GetDefaultStartingPlayerMap();
+            _fileNameMapper = new string[42];
+        }
+
         public bool WinnerChanged(Game gm)
         {
             if (gm.WinnerChanged == true)

@@ -18,6 +18,7 @@ namespace ConnectFour.Logic
         private int _currentPlayer;
         private int _turnsCount;
         private int _winnerId = 0;
+        private int[] _score = new int[2];
         private KeyValuePair<int, bool>[,] _fieldsMap = new KeyValuePair<int, bool>[GAME_COLUMNS, GAME_ROWS_FOR_EACH_COLUMN];
         private KeyValuePair<int, int>[] _winningFieldsCoords = new KeyValuePair<int, int>[4];
 
@@ -40,10 +41,23 @@ namespace ConnectFour.Logic
             {
                 WinnerChanged = true;
                 _winnerId = value;
+                switch(value)
+                {
+                    case 1:
+                        Score[0]++;
+                        break;
+                    case 2:
+                        Score[1]++;
+                        break;
+                }
             }
         }
 
         public KeyValuePair<int, int>[] WinningFieldsCoords { get => _winningFieldsCoords; set => _winningFieldsCoords = value; }
+
+        //Score[0] -> Yellow player points
+        //Score[1] -> Red player points
+        public int[] Score { get => _score; set => _score = value; }
 
         public Game()
         {
@@ -199,7 +213,7 @@ namespace ConnectFour.Logic
         }
 
         //Resets the game
-        private void Reset()
+        public void Reset()
         {
             _turnsCount = 0;
             _currentPlayer = DEFAULT_STARTING_PLAYER;

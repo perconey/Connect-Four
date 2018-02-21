@@ -24,6 +24,8 @@ namespace ConnectFour.ViewModel
         public ICommand Column6PinAddClick { get; set; }
         public ICommand Column7PinAddClick { get; set; }
 
+        public ICommand ResetButtonClick { get; set; }
+
         public Game Game { get => _game; set => _game = value; }
         public GameBoardMapper Mapper
         {
@@ -81,9 +83,17 @@ namespace ConnectFour.ViewModel
             Column5PinAddClick = new RelayCommand(Column5Click, o => true);
             Column6PinAddClick = new RelayCommand(Column6Click, o => true);
             Column7PinAddClick = new RelayCommand(Column7Click, o => true);
+            ResetButtonClick = new RelayCommand(ResetClick, o => true);
             mappedLocs = Mapper.FileNameMapper;
             mappedDiscardedArrows = Mapper.ArrowIndicatorControllers;
             CurrentTurn = Mapper.CurrentTurn;
+        }
+
+        public void ResetClick(object o)
+        {
+            Game.Reset();
+            Mapper.Reset();
+            ResetViewModelMapping();
         }
 
         public void Column1Click(object o)
@@ -125,12 +135,15 @@ namespace ConnectFour.ViewModel
 
         private void UpdateMapping()
         {
+            //On player winning
             if (Mapper.WinnerChanged(Game))
             {
                 Mapper.MapToFileNameWin(Game);
                 NotifiedWinner = Game.WinnerId;
                 Mapper.DiscardFilledColumnIndicators(Game);
+                Mapper.UpdateTurnIndicator(Game);
             }
+            //On normal turn
             else
             {
                 Mapper.MapToFileName(Game);
@@ -141,6 +154,16 @@ namespace ConnectFour.ViewModel
             MappedLocs = Mapper.FileNameMapper;
             MappedDiscardedArrows = Mapper.ArrowIndicatorControllers;
             CurrentTurn = Mapper.CurrentTurn;
+        }
+
+        private void ResetViewModelMapping()
+        {
+            MappedLocs = Mapper.FileNameMapper;
+            MappedDiscardedArrows = Mapper.ArrowIndicatorControllers;
+            CurrentTurn = Mapper.CurrentTurn;
+            Mapper.MapToFileName(Game);
+            Mapper.DiscardFilledColumnIndicators(Game);
+            Mapper.UpdateTurnIndicator(Game);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
