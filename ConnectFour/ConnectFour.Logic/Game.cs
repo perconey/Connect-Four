@@ -226,6 +226,7 @@ namespace ConnectFour.Logic
             _winningFieldsCoords = new KeyValuePair<int, int>[4];
             _fullColumns = new List<int>();
             _fieldsToCheck = new List<KeyValuePair<int, int>>();
+            WinnerChanged = false;
         }
     }
 }

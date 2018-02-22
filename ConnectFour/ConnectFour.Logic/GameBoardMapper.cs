@@ -79,6 +79,14 @@ namespace ConnectFour.Logic
             }
         }
 
+        public string[] HideArrowIndicators()
+        {
+            return new string[7]
+            {
+                 "Hidden","Hidden","Hidden","Hidden","Hidden","Hidden","Hidden"
+            };
+        }
+
         public void MapToFileName(Game gm)
         {
             int column, row;

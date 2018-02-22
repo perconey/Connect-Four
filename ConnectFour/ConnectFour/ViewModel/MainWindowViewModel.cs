@@ -1,5 +1,6 @@
 ﻿using ConnectFour.Logic;
 using System.ComponentModel;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace ConnectFour.ViewModel
@@ -135,7 +136,7 @@ namespace ConnectFour.ViewModel
             UpdateMapping();   
         }
 
-        private void UpdateMapping()
+        private async void UpdateMapping()
         {
             //On player winning
             if (Mapper.WinnerChanged(Game))
@@ -144,6 +145,20 @@ namespace ConnectFour.ViewModel
                 NotifiedWinner = Game.WinnerId;
                 Mapper.DiscardFilledColumnIndicators(Game);
                 Mapper.UpdateTurnIndicator(Game);
+
+                MappedLocs = Mapper.FileNameMapper;
+                MappedDiscardedArrows = Mapper.HideArrowIndicators();
+                CurrentTurn = Mapper.CurrentTurn;
+
+                await Task.Delay(3000);
+
+                Game.Reset();
+                Mapper.Reset();
+                ResetViewModelMapping();
+
+                return;
+
+
             }
             //On normal turn
             else
