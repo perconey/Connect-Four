@@ -18,7 +18,7 @@ namespace ConnectFour.Logic
         private int _currentPlayer;
         private int _turnsCount;
         private int _winnerId = 0;
-        private int[] _score = new int[2];
+        private int[] _score = new int[3];
         private KeyValuePair<int, bool>[,] _fieldsMap = new KeyValuePair<int, bool>[GAME_COLUMNS, GAME_ROWS_FOR_EACH_COLUMN];
         private KeyValuePair<int, int>[] _winningFieldsCoords = new KeyValuePair<int, int>[4];
 
@@ -55,8 +55,8 @@ namespace ConnectFour.Logic
 
         public KeyValuePair<int, int>[] WinningFieldsCoords { get => _winningFieldsCoords; set => _winningFieldsCoords = value; }
 
-        //Score[0] -> Yellow player points
-        //Score[1] -> Red player points
+        //Score[1] -> Yellow player points
+        //Score[2] -> Red player points
         public int[] Score { get => _score; set => _score = value; }
 
         public Game()
@@ -125,6 +125,7 @@ namespace ConnectFour.Logic
                                 for (int t = 0; t < 4; t++)
                                     wfc[t] = new KeyValuePair<int, int>(item.Key + t, item.Value);
                                 WinningFieldsCoords = wfc;
+                                Score[currentlyCheckedPinColor]++;
                                 return;
                             }
                             continue;
@@ -145,6 +146,7 @@ namespace ConnectFour.Logic
                                 for (int t = 0; t < 4; t++)
                                     wfc[t] = new KeyValuePair<int, int>(item.Key, item.Value + t);
                                 WinningFieldsCoords = wfc;
+                                Score[currentlyCheckedPinColor]++;
                                 return;
                             }
                             continue;
@@ -166,6 +168,7 @@ namespace ConnectFour.Logic
                                 for (int t = 0; t < 4; t++)
                                     wfc[t] = new KeyValuePair<int, int>(item.Key + t, item.Value + t);
                                 WinningFieldsCoords = wfc;
+                                Score[currentlyCheckedPinColor]++;
                                 return;
                             }
                             continue;
@@ -187,6 +190,7 @@ namespace ConnectFour.Logic
                                 for (int t = 0; t < 4; t++)
                                     wfc[t] = new KeyValuePair<int, int>(item.Key - t, item.Value + t);
                                 WinningFieldsCoords = wfc;
+                                Score[currentlyCheckedPinColor]++;
                                 return;
                             }
                             continue;

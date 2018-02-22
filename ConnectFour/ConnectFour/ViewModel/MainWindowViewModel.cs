@@ -1,6 +1,5 @@
 ﻿using ConnectFour.Logic;
 using System.ComponentModel;
-using System.Windows;
 using System.Windows.Input;
 
 namespace ConnectFour.ViewModel
@@ -13,8 +12,11 @@ namespace ConnectFour.ViewModel
         private string[] mappedLocs = new string[42];
         private int notifiedWinner = 0;
 
+
         private string[] mappedDiscardedArrows = null;
         private string currentTurn;
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public ICommand Column1PinAddClick { get; set; }
         public ICommand Column2PinAddClick { get; set; }
@@ -166,7 +168,6 @@ namespace ConnectFour.ViewModel
             Mapper.UpdateTurnIndicator(Game);
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
         public void NotifyPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
