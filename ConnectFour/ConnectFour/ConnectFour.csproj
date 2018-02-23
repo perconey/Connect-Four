@@ -119,5 +119,11 @@
     <Resource Include="Resources\predMarked.png" />
     <Resource Include="Resources\pyellowMarked.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\bTex.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\c4boardNew.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

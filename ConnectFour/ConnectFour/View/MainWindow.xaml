@@ -36,9 +36,11 @@
 
     <Grid>
         <!--Board image-->
-        <Button Content="Reset" Command="{Binding ResetButtonClick}" HorizontalAlignment="Left" Height="39" Margin="18,67,0,0" VerticalAlignment="Top" Width="122"/>
 
-        <Image HorizontalAlignment="Left" Source="/Resources/c4board.png" Height="502" Margin="161,66,0,0" VerticalAlignment="Top" Width="580"/>
+        <Button Content="Reset" Command="{Binding ResetButtonClick}" HorizontalAlignment="Left" Height="39" Margin="18,67,0,0" VerticalAlignment="Top" Width="122"/>
+        <Image HorizontalAlignment="Left" Source="/Resources/bTex.jpg" Height="462" Margin="186,92,-73,0" VerticalAlignment="Top" Width="631"/>
+
+        <Image HorizontalAlignment="Left" Source="/Resources/c4boardNew.png" Height="502" Margin="161,66,0,0" VerticalAlignment="Top" Width="580"/>
 
         <!--#region Buttons named from left to right 1 ... 7 -->
         <Button Visibility="{Binding MappedDiscardedArrows[0]}" Name="b1" Command="{Binding Column1PinAddClick}" Style="{DynamicResource NoMouseOverButton}"
@@ -151,6 +153,10 @@
 
         <Label Content="Current player" HorizontalAlignment="Left" Height="28" Margin="18,454,0,0" VerticalAlignment="Top" Width="121" HorizontalContentAlignment="Center"/>
 
+        <!--Player 1 score-->
+        <Label Content="{Binding ScoreOfPlayer[0]}" HorizontalAlignment="Left" Height="51" Margin="34,186,0,0" VerticalAlignment="Top" Width="105" FontSize="36"/>
+        <!--Player 2 score-->
+        <Label Content="{Binding ScoreOfPlayer[1]}" HorizontalAlignment="Left" Height="51" Margin="34,244,0,0" VerticalAlignment="Top" Width="105" FontSize="36"/>
 
 
     </Grid>

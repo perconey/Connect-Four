@@ -12,6 +12,7 @@ namespace ConnectFour.ViewModel
         private GameBoardMapper _mapper = new GameBoardMapper();
         private string[] mappedLocs = new string[42];
         private int notifiedWinner = 0;
+        private int[] _scoreOfPlayer = new int[2];
 
 
         private string[] mappedDiscardedArrows = null;
@@ -74,6 +75,16 @@ namespace ConnectFour.ViewModel
                 notifiedWinner = value;
                // MessageBox.Show("The winner is:" + NotifiedWinner);
                 NotifyPropertyChanged("NotifiedWinner");
+            }
+        }
+
+        public int[] ScoreOfPlayer
+        {
+            get => _scoreOfPlayer;
+            set
+            {
+                _scoreOfPlayer = value;
+                NotifyPropertyChanged("ScoreOfPlayer");
             }
         }
 
@@ -149,6 +160,7 @@ namespace ConnectFour.ViewModel
                 MappedLocs = Mapper.FileNameMapper;
                 MappedDiscardedArrows = Mapper.HideArrowIndicators();
                 CurrentTurn = Mapper.CurrentTurn;
+                ScoreOfPlayer = Mapper.MapScoreChange(Game);
 
                 await Task.Delay(3000);
 
@@ -157,8 +169,6 @@ namespace ConnectFour.ViewModel
                 ResetViewModelMapping();
 
                 return;
-
-
             }
             //On normal turn
             else
