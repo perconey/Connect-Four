@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ViewModel="clr-namespace:ConnectFour.ViewModel"
         mc:Ignorable="d"
-        Title="Connect Four" ResizeMode="NoResize" Height="600" Width="750" Background="#FFFAFAFF">
+        Title="Connect Four" ResizeMode="NoResize" Height="615.75" Width="764.5" Background="#FFFAFAFF" Icon="/ConnectFour;component/Resources/favicon.png">
     <Window.Resources>
         <!--#region Styles-->
         <!--No mouseover action style v2-->

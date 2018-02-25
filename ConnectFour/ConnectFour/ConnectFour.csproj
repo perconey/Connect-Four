@@ -125,5 +125,8 @@
   <ItemGroup>
     <Resource Include="Resources\c4boardNew.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\favicon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
