@@ -20,7 +20,7 @@ namespace ConnectFour.Logic
         private int _winnerId = 0;
         private int[] _score = new int[2];
         private KeyValuePair<int, bool>[,] _fieldsMap = new KeyValuePair<int, bool>[GAME_COLUMNS, GAME_ROWS_FOR_EACH_COLUMN];
-        private KeyValuePair<int, int>[] _winningFieldsCoords = new KeyValuePair<int, int>[4];
+        private KeyValuePair<int, int>[] _winningFieldsCoords = null;
 
         public KeyValuePair<int, bool>[,] FieldsMap { get => _fieldsMap; set => _fieldsMap = value; }
 
@@ -48,6 +48,8 @@ namespace ConnectFour.Logic
                         break;
                     case 2:
                         Score[1]++;
+                        break;
+                    case 3:
                         break;
                 }
             }
@@ -103,6 +105,9 @@ namespace ConnectFour.Logic
 
             if(TurnsCount >= 7)
             CheckWinningState();
+
+            if (TurnsCount == GAME_ROWS_FOR_EACH_COLUMN * GAME_COLUMNS)
+                WinnerId = 3;
         }       
 
         private void CheckWinningState()
@@ -223,6 +228,19 @@ namespace ConnectFour.Logic
             _fullColumns = new List<int>();
             _fieldsToCheck = new List<KeyValuePair<int, int>>();
             WinnerChanged = false;
+        }
+
+        public void NewGame()
+        {
+            _turnsCount = 0;
+            _currentPlayer = DEFAULT_STARTING_PLAYER;
+            _winnerId = 0;
+            _fieldsMap = new KeyValuePair<int, bool>[GAME_COLUMNS, GAME_ROWS_FOR_EACH_COLUMN];
+            _winningFieldsCoords = new KeyValuePair<int, int>[4];
+            _fullColumns = new List<int>();
+            _fieldsToCheck = new List<KeyValuePair<int, int>>();
+            WinnerChanged = false;
+            _score = new int[2];
         }
     }
 }

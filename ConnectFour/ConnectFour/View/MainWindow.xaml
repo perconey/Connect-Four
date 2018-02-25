@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ViewModel="clr-namespace:ConnectFour.ViewModel"
         mc:Ignorable="d"
-        Title="Connect Four" ResizeMode="NoResize" Height="600" Width="750">
+        Title="Connect Four" ResizeMode="NoResize" Height="600" Width="750" Background="#FFFAFAFF">
     <Window.Resources>
         <!--#region Styles-->
         <!--No mouseover action style v2-->
@@ -37,7 +37,7 @@
     <Grid>
         <!--Board image-->
 
-        <Button Content="Reset" Command="{Binding ResetButtonClick}" HorizontalAlignment="Left" Height="39" Margin="18,67,0,0" VerticalAlignment="Top" Width="122"/>
+        <Button Content="New Game" Command="{Binding ResetButtonClick}" HorizontalAlignment="Left" Height="39" Margin="17,22,0,0" VerticalAlignment="Top" Width="122"/>
         <Image HorizontalAlignment="Left" Source="/Resources/bTex.jpg" Height="462" Margin="186,92,-73,0" VerticalAlignment="Top" Width="631"/>
 
         <Image HorizontalAlignment="Left" Source="/Resources/c4boardNew.png" Height="502" Margin="161,66,0,0" VerticalAlignment="Top" Width="580"/>
@@ -151,12 +151,14 @@
         <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[40]}" Height="55" Margin="660,408,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
         <Image HorizontalAlignment="Left" Source="{Binding MappedLocs[41]}" Height="55" Margin="660,487,0,0" VerticalAlignment="Top" Width="56" Stretch="Fill"/>
 
-        <Label Content="Current player" HorizontalAlignment="Left" Height="28" Margin="18,454,0,0" VerticalAlignment="Top" Width="121" HorizontalContentAlignment="Center"/>
+        <Label Content="Current player" HorizontalAlignment="Left" Height="28" Margin="18,454,0,0" VerticalAlignment="Top" Width="121" HorizontalContentAlignment="Center" FontFamily="Microsoft YaHei" FontSize="14"/>
 
         <!--Player 1 score-->
-        <Label Content="{Binding ScoreOfPlayer[0]}" HorizontalAlignment="Left" Height="51" Margin="34,186,0,0" VerticalAlignment="Top" Width="105" FontSize="36"/>
+        <Label Content="{Binding ScoreOfPlayer[0]}" HorizontalAlignment="Left" Height="51" Margin="43,202,0,0" VerticalAlignment="Top" Width="72" FontSize="36" HorizontalContentAlignment="Center"/>
         <!--Player 2 score-->
-        <Label Content="{Binding ScoreOfPlayer[1]}" HorizontalAlignment="Left" Height="51" Margin="34,244,0,0" VerticalAlignment="Top" Width="105" FontSize="36"/>
+        <Label Content="{Binding ScoreOfPlayer[1]}" HorizontalAlignment="Left" Height="51" Margin="43,321,0,0" VerticalAlignment="Top" Width="72" FontSize="36" HorizontalContentAlignment="Center"/>
+        <Label Content="YELLOW" HorizontalAlignment="Left" Height="35" Margin="29,171,0,0" VerticalAlignment="Top" Width="107" HorizontalContentAlignment="Center" FontFamily="Microsoft YaHei UI" VerticalContentAlignment="Center" FontSize="24"/>
+        <Label Content="RED" HorizontalAlignment="Left" Height="35" Margin="26,291,0,0" VerticalAlignment="Top" Width="107" HorizontalContentAlignment="Center" FontFamily="Microsoft YaHei UI" VerticalContentAlignment="Center" FontSize="24"/>
 
 
     </Grid>

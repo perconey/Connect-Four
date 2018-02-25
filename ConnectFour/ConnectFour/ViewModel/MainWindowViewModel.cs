@@ -105,9 +105,11 @@ namespace ConnectFour.ViewModel
 
         public void ResetClick(object o)
         {
-            Game.Reset();
+            Game.NewGame();
             Mapper.Reset();
-            ResetViewModelMapping();
+            ResetViewModelMappingAfterWin();
+            _scoreOfPlayer = new int[2];
+            NotifyPropertyChanged("ScoreOfPlayer");
         }
 
         public void Column1Click(object o)
@@ -152,23 +154,31 @@ namespace ConnectFour.ViewModel
             //On player winning
             if (Mapper.WinnerChanged(Game))
             {
-                Mapper.MapToFileNameWin(Game);
-                NotifiedWinner = Game.WinnerId;
-                Mapper.DiscardFilledColumnIndicators(Game);
-                Mapper.UpdateTurnIndicator(Game);
+                try
+                {
+                    if (Game.WinnerId != 3)
+                        Mapper.MapToFileNameWin(Game);
+                    else
+                        Mapper.MapToFileName(Game);
 
-                MappedLocs = Mapper.FileNameMapper;
-                MappedDiscardedArrows = Mapper.HideArrowIndicators();
-                CurrentTurn = Mapper.CurrentTurn;
-                ScoreOfPlayer = Mapper.MapScoreChange(Game);
+                    NotifiedWinner = Game.WinnerId;
+                    Mapper.DiscardFilledColumnIndicators(Game);
+                    Mapper.UpdateTurnIndicator(Game);
 
-                await Task.Delay(3000);
+                    MappedLocs = Mapper.FileNameMapper;
+                    MappedDiscardedArrows = Mapper.HideArrowIndicators();
+                    CurrentTurn = Mapper.CurrentTurn;
+                    ScoreOfPlayer = Mapper.MapScoreChange(Game);
 
-                Game.Reset();
-                Mapper.Reset();
-                ResetViewModelMapping();
+                    await Task.Delay(3000);
 
-                return;
+                    Game.Reset();
+                    Mapper.Reset();
+                    ResetViewModelMappingAfterWin();
+
+                    return;
+                }
+                catch (System.Exception ex) { }
             }
             //On normal turn
             else
@@ -183,7 +193,7 @@ namespace ConnectFour.ViewModel
             CurrentTurn = Mapper.CurrentTurn;
         }
 
-        private void ResetViewModelMapping()
+        private void ResetViewModelMappingAfterWin()
         {
             MappedLocs = Mapper.FileNameMapper;
             MappedDiscardedArrows = Mapper.ArrowIndicatorControllers;
