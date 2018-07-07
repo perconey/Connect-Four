@@ -215,6 +215,8 @@ namespace ConnectFour.Logic
                     CurrentPlayer = 1;
                     break;
             }
+            if (TurnsCount == 42)
+                NewGame();
         }
 
         //Resets the game
