@@ -217,6 +217,7 @@ namespace ConnectFour.Logic
             }
             if (TurnsCount == 42)
                 NewGame();
+            //skip
         }
 
         //Resets the game
